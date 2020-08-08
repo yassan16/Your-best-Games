@@ -5,11 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/fd999642e4.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <P><%= link_to "Your best Games", new_admin_session_path, class:"footer-text" %></P>
+      </div>
+    </footer>
   </body>
 </html>

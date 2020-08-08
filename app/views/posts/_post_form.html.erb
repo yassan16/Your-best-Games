@@ -1,0 +1,19 @@
+<%= form_for @post do |f| %>
+
+<div>
+	<%= f.label :title %>
+	<%= f.text_field :title, placeholder: "タイトル" %>
+</div>
+
+<div>
+	<%= f.label :body %>
+	<%= f.text_field :body, placeholder: "内容説明" %>
+</div>
+
+<div>
+	<%= f.label :画像 %>
+	<%= f.file_field :image %>
+</div>
+
+	<%= f.submit "投稿する" %>
+<% end %>

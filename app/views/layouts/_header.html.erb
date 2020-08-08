@@ -1,0 +1,33 @@
+<h1><%= link_to "Your best Games", root_path %></h1>
+
+<div id="sp-menu">
+  <h1>MENU</h1>
+
+  <% if user_signed_in? %>
+    <ul>
+      <li><%= link_to "プロフィール", user_path(current_user) %></li>
+      <li><%= link_to "投稿一覧", posts_path %></li>
+      <li><%= link_to "いいね", root_path %></li>
+      <li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  <% else %>
+    <ul>
+      <li><%= link_to "About", home_about_path %></li>
+      <li><%= link_to "投稿一覧", posts_path %></li>
+      <li><%= link_to "SignUp", new_user_registration_path %></li>
+      <li><%= link_to "LogIn", new_user_session_path %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div id="list-icon">
+  <%= link_to new_post_path do %>
+    <i class="fas fa-plus-circle fa-3x"></i>
+  <% end %>
+
+  <a class="menu-trigger" href="#">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+</div>

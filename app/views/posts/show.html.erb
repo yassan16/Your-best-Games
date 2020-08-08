@@ -1,0 +1,22 @@
+<h1>投稿詳細</h1>
+
+<div class="row">
+	<div class="col-xs-3 user-profile">
+		<%= render "users/profile" %>
+	</div>
+
+	<div class="col-xs-6">
+		<div>
+			<span><%= @post.title %></span>
+			<span><%= @post.created_at%></span>
+			<span>いいね数</span>
+			<span>コメント数</span>
+		</div>
+
+		<div>
+			<%= image_tag @post.image.url, class:"post-show-image" %>
+		</div>
+
+		<div><%= @post.body %></div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+<div class="post-list flex">
+	<% posts.each do |post| %>
+		<div><%= image_tag post.user.profile_image.url, size: "100x100" %><br>
+			<%= post.user.nickname %></div>
+		<div><%= link_to post.title, post_path(post.id) %></div>
+		<div><%= link_to post_path(post.id) do %>
+				<%= image_tag post.image.url, size: "200x150" %>
+			<% end %>
+		</div>
+		<div><%= post.body %></div>
+		<div>いいね数<br>コメント数</div>
+		<div><%= link_to "削除", post_path(post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger" %></div>
+	<% end %>
+</div>

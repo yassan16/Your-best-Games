@@ -1,0 +1,18 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.flex{
+	display: flex;
+}
+
+.flex div{
+	width: 200px;
+	margin-right: 10px;
+	background-color: silver;
+}
+
+.post-show-image{
+	width: 70%;
+	height: auto;
+}
