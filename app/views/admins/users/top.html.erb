@@ -1,1 +1,9 @@
-<h1>管理者top</h1>
+<div class="container">
+	<h1>管理者top</h1>
+
+	<span><%= link_to "ユーザ管理", admins_users_path, class:"btn btn-primary" %></span>
+
+	<span><%= link_to "タグ管理", admins_tags_path, class:"btn btn-warning" %></span>
+
+	<span><%= link_to "LogOut", destroy_admin_session_path, method: :delete, class:"btn btn-danger" %></span>
+</div>

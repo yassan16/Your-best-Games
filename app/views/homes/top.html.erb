@@ -1,7 +1,12 @@
 <h1>top画面</h1>
 
-<%= link_to "お試し", root_path, class:"btn btn-success" %>
+<h2>Skiper導入</h2>
+
+<h2>いいね数１〜３位ランキング</h2>
+
+<h2>新着順最新３件</h2>
 
 <% if user_signed_in? %>
-	<h1>ログインできてる</h1>
+	<h1>ログインしてるユーザ</h1>
+	<%= current_user.nickname %>
 <% end %>

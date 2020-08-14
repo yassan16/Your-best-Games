@@ -3,14 +3,20 @@ class UsersController < ApplicationController
 	before_action :get_user, only:[:show, :edit, :update]
 
 	def show
-		@posts = Post.where(user_id: current_user.id)
+		@posts = Post.where(user_id: @user.id)
+	end
+
+	def index
+		@user = User.find(current_user.id)
+		@users = User.where(is_active: true)
 	end
 
 	def edit
 	end
 
 	def update
-		if @user.update(user_params)
+		if @user == current_user
+			@user.update(user_params)
 			redirect_to user_path(current_user)
 		else
 			render ("users/edit")
@@ -20,7 +26,7 @@ class UsersController < ApplicationController
 	private
 
 	def get_user
-		@user = User.find(current_user.id)
+		@user = User.find(params[:id])
 	end
 
 	def user_params

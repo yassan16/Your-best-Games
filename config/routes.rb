@@ -9,15 +9,20 @@ Rails.application.routes.draw do
 	root to: "homes#top"
 	get "home/about", to: "homes#about"
 
-	resources :posts, except:[:edit, :update]
+	resources :users, only:[:show, :index, :edit, :update]
 
-	resources :users, only:[:show, :edit, :update]
+	resources :posts, except:[:edit, :update] do
+		resources :post_comments, only:[:create, :destroy]
+		resources :likes, only:[:create, :destroy]
+	end
+
 
     namespace :admins do
-    	resources :tags
+		get "top", to: "users#top"
 
-    	get "top", to: "users#top"
-    	resources :users
+    	resources :users, only:[:index, :edit, :update]
+
+    	resources :tags
     end
 end
 

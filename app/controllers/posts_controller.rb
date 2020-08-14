@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-	before_action :authenticate_user!
-	before_action :get_post, only:[:show, :destory]
+	before_action :authenticate_user!, only:[:new, :create, :destroy]
+	before_action :get_post, only:[:show, :destroy]
 
 	def new
 		@post = Post.new
@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@post_comment = PostComment.new
+		@post_comments = PostComment.where(post_id: @post.id)
 	end
 
 	def index
@@ -25,6 +27,8 @@ class PostsController < ApplicationController
 	end
 
 	def destroy
+		@post.destroy
+		redirect_to request.referrer
 	end
 
 	private
@@ -38,7 +42,8 @@ class PostsController < ApplicationController
 			:title,
 			:body,
 			:image,
-			:video
+			:video,
+			:tag_id
 		)
 	end
 end

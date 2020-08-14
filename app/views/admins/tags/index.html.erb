@@ -1,0 +1,29 @@
+<div class="container">
+	<h1>タグ一覧</h1>
+
+	<div>
+		<%= form_for @tag, url: admins_tags_path, method: :post do |f| %>
+			<%= f.label :新規タグ %>
+			<%= f.text_field :tag_name %>
+
+			<%= f.submit "追加" %>
+		<% end %>
+	</div>
+
+	<table>
+		<hhead>
+			<th>タグ名</th>
+			<th>作成日</th>
+			<th>更新日</th>
+		</hhead>
+		<% @tags.each do |tag| %>
+			<tr>
+				<td><%= tag.tag_name %></td>
+				<td><%= l tag.created_at %></td>
+				<td><%= l tag.updated_at %></td>
+				<td><%= link_to "編集", edit_admins_tag_path(tag.id), class:"btn btn-success" %></td>
+			</tr>
+		<% end %>
+	</table>
+</div>
+

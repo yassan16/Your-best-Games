@@ -1,18 +1,28 @@
 <%= form_for @post do |f| %>
 
 <div>
-	<%= f.label :title %>
+	<%= f.label :タイトル %>
 	<%= f.text_field :title, placeholder: "タイトル" %>
 </div>
 
 <div>
-	<%= f.label :body %>
-	<%= f.text_field :body, placeholder: "内容説明" %>
+	<%= f.label :内容 %>
+	<%= f.text_area :body, placeholder: "見どころを記入！" %>
+</div>
+
+<div>
+	<%= f.label :タグ %>
+	<td><%= f.collection_select :tag_id, Tag.all, :id, :tag_name, include_blank: "--タグを選択してください--" %></td>
 </div>
 
 <div>
 	<%= f.label :画像 %>
 	<%= f.file_field :image %>
+</div>
+
+<div>
+	<%= f.label :動画 %>
+	<%= f.file_field :video %>
 </div>
 
 	<%= f.submit "投稿する" %>

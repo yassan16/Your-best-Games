@@ -7,4 +7,12 @@ class User < ApplicationRecord
 	mount_uploader :profile_image, ProfileImageUploader
 
 	has_many :posts
+	has_many :post_comments
+	has_many :likes
+
+	enum is_active: {Available: true, Invalid: false}
+
+	def active_for_authentication?
+		super && (self.is_active === "Available")
+	end
 end

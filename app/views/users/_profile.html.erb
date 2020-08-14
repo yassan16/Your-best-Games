@@ -1,5 +1,5 @@
-<% if current_user.profile_image? %>
-	<%= image_tag current_user.profile_image.url, size: "200x200" %>
+<% if user.profile_image? %>
+	<%= image_tag user.profile_image.url, size: "200x200" %>
 <% else %>
 	<div class="user-no-profile">
 		<i class="fas fa-user-circle fa-5x"></i>
@@ -7,10 +7,11 @@
 <% end %>
 
 <div class="user-nickname">
-	<p><%= current_user.nickname %></p>
+	<p><%= user.nickname %></p>
 </div>
 
-<div>
-	<%= link_to "プロフィールを編集する", edit_user_path(current_user), class:"btn btn-primary" %>
-</div>
-
+<% if user == current_user %>
+	<div>
+		<%= link_to "プロフィールを編集する", edit_user_path(user.id), class:"btn btn-primary" %>
+	</div>
+<% end %>

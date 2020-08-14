@@ -2,17 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.flex{
+.post-list{
 	display: flex;
 }
 
-.flex div{
+.post-list div{
 	width: 200px;
 	margin-right: 10px;
 	background-color: silver;
 }
 
-.post-show-image{
-	width: 70%;
-	height: auto;
+.post-show-video{
+	width: 700px;
+	margin-top: 20px;
 }

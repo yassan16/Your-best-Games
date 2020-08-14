@@ -19,7 +19,11 @@
 
     <footer>
       <div class="footer">
-        <P><%= link_to "Your best Games", new_admin_session_path, class:"footer-text" %></P>
+        <% if admin_signed_in? %>
+          <P><%= link_to "Your best Games", admins_top_path, class:"footer-text" %></P>
+        <% else %>
+          <P><%= link_to "Your best Games", new_admin_session_path, class:"footer-text" %></P>
+        <% end %>
       </div>
     </footer>
   </body>
