@@ -5,17 +5,17 @@
 
   <% if user_signed_in? %>
     <ul>
-      <li><%= link_to "プロフィール", user_path(current_user) %></li>
-      <li><%= link_to "投稿リスト", posts_path %></li>
-      <li><%= link_to "ユーザリスト", users_path %></li>
-      <li><%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
+      <li><i class="fas fa-user fa-3x"></i> <%= link_to "プロフィール", user_path(current_user) %></li>
+      <li><i class="fas fa-photo-video fa-3x"></i> <%= link_to "投稿リスト", posts_path %></li>
+      <li><i class="fas fa-users fa-3x"></i> <%= link_to "ユーザリスト", users_path %></li>
+      <li><i class="fas fa-sign-out-alt fa-3x"></i> <%= link_to "LogOut", destroy_user_session_path, method: :delete %></li>
     </ul>
   <% else %>
     <ul>
-      <li><%= link_to "About", home_about_path %></li>
-      <li><%= link_to "投稿一覧", posts_path %></li>
-      <li><%= link_to "SignUp", new_user_registration_path %></li>
-      <li><%= link_to "LogIn", new_user_session_path %></li>
+      <li><i class="fas fa-gamepad fa-3x"></i> <%= link_to "About", home_about_path %></li>
+      <li><i class="fas fa-photo-video fa-3x"></i> <%= link_to "投稿一覧", posts_path %></li>
+      <li><i class="fas fa-user-plus fa-3x"></i> <%= link_to "SignUp", new_user_registration_path %></li>
+      <li><i class="fas fa-sign-in-alt fa-3x"></i> <%= link_to "LogIn", new_user_session_path %></li>
     </ul>
   <% end %>
 </div>
