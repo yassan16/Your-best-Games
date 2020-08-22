@@ -3,12 +3,11 @@ class UsersController < ApplicationController
 	before_action :get_user, only:[:show, :edit, :update]
 
 	def show
-		@posts = Post.where(user_id: @user.id)
+		@posts = Post.where(user_id: @user.id).reverse_order.page(params[:page])
 	end
 
 	def index
-		@user = User.find(current_user.id)
-		@users = User.where(is_active: true)
+		@users = User.where(is_active: true).page(params[:page]).per(12)
 	end
 
 	def edit

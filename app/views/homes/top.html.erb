@@ -1,12 +1,48 @@
-<h1>top画面</h1>
+<div class="top-main-visual">
+	<div class="top-main-visual-content">
+		<p class="top-main-visual-text">ゲーム・アニメの感動をみんなで共有しませんか？</p>
 
-<h2>Skiper導入</h2>
+			<%= link_to "Your best Games とは", home_about_path, class:"top-link-about" %><br>
+			<span>ゲームやアニメで好きなシーンを投稿することができます。<br>
+				さらに、他ユーザの投稿に対して、コメントし感動を共有します。<br>
+				心を動かされた瞬間を、多くの人と語りたいあなたへ
+			</span>
 
-<h2>いいね数１〜３位ランキング</h2>
+	</div>
+</div>
 
-<h2>新着順最新３件</h2>
+<div class="top-ranking">
+	<div class="top-ranking-content">
+		<p>いいね数１〜３位ランキング</p>
 
-<% if user_signed_in? %>
-	<h1>ログインしてるユーザ</h1>
-	<%= current_user.nickname %>
-<% end %>
+		<div class="top-postlist">
+			<% @post_rank.each do |post| %>
+				<div><%= link_to post_path(post.id) do %>
+						<%= image_tag post.image.url, class:"top-image"%>
+					<% end %>
+					<p><%= post.title %><br>
+						<i class="fa fa-heart" aria-hidden= "true" style="color: red;"></i> <%= post.likes.count %>
+					</p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="top-ranking">
+	<div class="top-ranking-content">
+		<p>新着３件</p>
+
+		<div class="top-postlist">
+			<% @posts.last(3).sort.reverse.each do |post| %>
+			<div><%= link_to post_path(post.id) do %>
+					<%= image_tag post.image.url, class:"top-image"%>
+				<% end %>
+				<p><%= post.title %><br>
+					<i class="fas fa-calendar-alt"></i> <%= l post.created_at %>
+				</p>
+			</div>
+			<% end %>
+		</div>
+	</div>
+</div>

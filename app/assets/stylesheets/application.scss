@@ -17,22 +17,42 @@
 @import "bootstrap";
 
 
-/* 全体 */
+/* header箇所 */
 
-.container-fluid{
-	margin-top: 2.5%;
-	overflow: auto;
+header{
+	background-color: #2e3033;
+	padding-bottom: 25px;
 }
 
-/* 全体終了 */
+.top-logo{
+	display: inline-block;
+	margin-top: 40px;
+	margin-left: 50px;
+	margin-right: 50px;
+}
 
+.top-logo-text,
+.top-logo-text:link,
+.top-logo-text:visited,
+.top-logo-text:hover,
+.top-logo-text:active {
+	color: #fff;
+}
 
-/* header箇所 */
+.login-user{
+	margin-right: 50px;
+	color: #fff;
+}
+
+.search_tag{
+	display: inline-block;
+	margin-right: 350px;
+}
 
 #list-icon{
 	position: fixed;
-	right: 20px;
-	top: 20px;
+	right: 50px;
+	top: 40px;
 	z-index: 10;
 }
 
@@ -58,8 +78,8 @@
 	position: absolute;
 	left: 0;
 	width: 100%;
-	height: 4px;
-	background-color: #000;
+	height: 5px;
+	background-color: #fff;
 	border-radius: 4px;
 }
 
@@ -122,16 +142,21 @@
 	font-size: 40px;
 }
 
-/* header箇所終了 */
-
 
 /* login箇所 */
 
 .user-signup-login{
-	margin-left: 20%;
+	margin-left: 40%;
+	margin-top: 10%;
+	margin-right: 40%;
+	padding-left: 1%;
+	border: solid;
+	border-radius: 10px;
 }
 
-/* login箇所終了 */
+.user-signup-login h2{
+	margin-bottom: 5%;
+}
 
 
 /* footer箇所 */
@@ -139,9 +164,9 @@
 .footer{
 	position: fixed;
 	bottom: 0;
-	background-color: #000;
+	background-color: #2e3033;
 	width: 100%;
-	height: 5%;
+	height: 4%;
 	line-height: 50px;
 }
 
@@ -152,6 +177,4 @@
 .footer-text {
 	color: #fff;
 }
-
-/* footer箇所終了 */
 

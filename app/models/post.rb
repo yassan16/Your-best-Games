@@ -10,6 +10,12 @@ class Post < ApplicationRecord
 
 	belongs_to :tag
 
+	with_options presence: true do
+	  validates :title
+	  validates :body
+	  validates :image
+	end
+
 	def liked_by?(user)
 		likes.where(user_id: user.id).exists?
 	end

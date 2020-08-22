@@ -1,60 +1,69 @@
-<div class="row">
+<div class="row post-view-show">
+
 	<div class="col-xs-3 user-profile">
 		<% if user_signed_in? %>
 			<%= render "users/profile", user: @post.user %>
 		<% end %>
 	</div>
 
-	<div class="col-xs-6">
-		<div>
-			<span><%= @post.title %></span>
-			<span><%= @post.tag.tag_name%></span>
-			<span><%= l @post.created_at%></span>
+	<div class="col-xs-9 post-show-all">
+		<div class="post-show-titel"><span><%= @post.title %></span></div>
+		<div class="post-show-tag"><span><%= @post.tag.tag_name%></span></div>
+
+		<div class="post-show-like">
+			<span><i class="fas fa-calendar-alt"></i> <%= l @post.created_at%></span><br>
 			<span><% if @post.liked_by?(current_user) %>
 					<%= link_to post_like_path(@post), method: :delete do %>
 						<i class="fa fa-heart" aria-hidden= "true" style="color: red;"></i>
 					<% end %>
 						<%= @post.likes.count %>
-					<% else %>
+				  <% else %>
 						<%= link_to post_likes_path(@post), method: :post do %>
 							<i class="fa fa-heart" aria-hidden= "true"></i>
 						<% end %>
 						<%= @post.likes.count %>
-					<% end %>
+				  <% end %>
 			</span>
 			<span><i class="far fa-comment-dots"></i> <%= @post.post_comments.count %></span>
 		</div>
 
 		<div>
-			<%= image_tag @post.image.url, class:"post-show-image" %>
+			<%= image_tag @post.image.url, class:"post-image-video" %>
 		</div>
 
 		<% if @post.video? %>
 			<div>
-				<%= video_tag @post.video, controls: true, class:"post-show-video" %>
+				<%= video_tag @post.video, controls: true, class:"post-image-video" %>
 			</div>
 		<% end %>
 
-		<div><%= @post.body %></div>
+		<div class="post-show-body">
+			<P class="post-show-body-headline">投稿者コメント</P>
+			<p class="post-show-content"><%= @post.body %></p>
+		</div>
 
-		<div>
+		<div class="comment-area">
 			<%= form_for [@post, @post_comment] do |f| %>
-				<%= f.text_area :comment, placeholder: "コメントをここに記入!" %>
+				<%= f.text_area :comment, placeholder: "コメントをここに記入!", class:"commment-form" %>
 				<%= f.submit "コメントする" %>
 			<% end %>
 		</div>
 
-		<div>
-			<% @post_comments.each do |post_comment| %>
-				<div><%= post_comment.user.nickname %>
-					<%= l post_comment.created_at %></div>
-				<div><%= post_comment.comment %>
-					<% if post_comment.user == current_user %>
-						<%= link_to "削除", post_post_comment_path(post_comment.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger"%>
-					<% end %>
+		<div class="post-index-botton"><%= link_to "投稿一覧に戻る", posts_path, class:"btn btn-info"%></div>
+
+			<% @post.post_comments.sort.reverse.each do |post_comment| %>
+				<div class="post-show-comments">
+					<div><%= post_comment.user.nickname %>
+						<%= l post_comment.created_at %></div>
+					<div><%= simple_format(post_comment.comment) %>
+						<% if post_comment.user == current_user %>
+							<%= link_to "削除", post_post_comment_path(@post, post_comment), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger btn-destroy"%>
+						<% end %>
+					</div>
 				</div>
 			<% end %>
-		</div>
 
+		<div></div>
 	</div>
+
 </div>

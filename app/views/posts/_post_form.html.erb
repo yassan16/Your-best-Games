@@ -1,29 +1,34 @@
-<%= form_for @post do |f| %>
+<div class="post-new-form">
+	<%= form_for @post do |f| %>
+		<div>
+			<%= f.label :タイトル %>
+			<%= f.text_field :title, placeholder: "タイトルを記入" %>
+		</div>
 
-<div>
-	<%= f.label :タイトル %>
-	<%= f.text_field :title, placeholder: "タイトル" %>
+		<div>
+			<%= f.label :タグ %>
+			<td><%= f.collection_select :tag_id, Tag.all, :id, :tag_name, include_blank: "--タグを選択してください--" %></td>
+		</div>
+
+		<div>
+			<%= f.label :内容 %>
+			<%= f.text_area :body, placeholder: "見どころを記入！", class:"post-new-body" %>
+		</div>
+
+		<div class="post-new-img">
+			<%= f.label :画像 %>
+			<%= f.file_field :image, id: :post_img %>
+			<div><%= image_tag "no_image.jpg", id: :post_img_prev %></div>
+		</div>
+
+		<div class="post-new-video">
+			<%= f.label :動画 %>
+			<%= f.file_field :video, id: :post_video %>
+			<div><%= video_tag "no_image.jpg", controls: true, id: :post_video_prev %></div>
+		</div>
+
+		<div><%= f.submit "投稿する", class:"btn btn-primary" %></div>
+	<% end %>
 </div>
 
-<div>
-	<%= f.label :内容 %>
-	<%= f.text_area :body, placeholder: "見どころを記入！" %>
-</div>
 
-<div>
-	<%= f.label :タグ %>
-	<td><%= f.collection_select :tag_id, Tag.all, :id, :tag_name, include_blank: "--タグを選択してください--" %></td>
-</div>
-
-<div>
-	<%= f.label :画像 %>
-	<%= f.file_field :image %>
-</div>
-
-<div>
-	<%= f.label :動画 %>
-	<%= f.file_field :video %>
-</div>
-
-	<%= f.submit "投稿する" %>
-<% end %>

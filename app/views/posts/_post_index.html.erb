@@ -1,41 +1,41 @@
 <% posts.each do |post| %>
 	<div class="row post-list">
 		<div><% if post.user.profile_image? %>
-				<%= image_tag post.user.profile_image.url, size: "100x100" %>
+				<%= image_tag post.user.profile_image.url, class:"user_profile_image_post_index" %>
 			<% else %>
-				<div class="user-no-profile">
 					<i class="fas fa-user-circle fa-5x"></i>
-				</div>
 			<% end %>
-			<%= post.user.nickname %>
+			<br>
+			<%= link_to post.user.nickname, user_path(post.user.id), class:"user-link" %>
 		</div>
 
-		<div><%= link_to post.title, post_path(post.id) %><br>
-			<%= post.tag.tag_name %></div>
+		<div><%= link_to post.title, post_path(post.id), class:"post_title" %><br>
+			<%= post.tag.tag_name %><br>
+			<i class="fas fa-calendar-alt fa-lg"></i> <%= l post.created_at %>
+		</div>
 
 		<div><%= link_to post_path(post.id) do %>
-				<%= image_tag post.image.url, size: "200x150" %>
+				<%= image_tag post.image.url, class:"post-index-image"%>
 			<% end %>
 		</div>
-
-		<div><%= post.body %></div>
 
 		<div>
 			<% if user_signed_in? %>
 				<% if post.liked_by?(current_user) %>
-					<i class="fa fa-heart" aria-hidden= "true" style="color: red;"></i>
+					<i class="fa fa-heart fa-lg" aria-hidden= "true" style="color: red;"></i>
 						<%= post.likes.count %>
 				<% else %>
-					<i class="fa fa-heart" aria-hidden= "true"></i>
+					<i class="fa fa-heart fa-lg" aria-hidden= "true"></i>
 						<%= post.likes.count %>
 				<% end %>
 			<% else %>
-					<i class="fa fa-heart" aria-hidden= "true"></i>
+					<i class="fa fa-heart fa-lg" aria-hidden= "true"></i>
 						<%= post.likes.count %>
 			<% end %>
 			<br>
-			<i class="far fa-comment-dots"></i> <%= post.post_comments.count %>
+			<i class="far fa-comment-dots fa-lg"></i> <%= post.post_comments.count %>
 		</div>
 	</div>
 <% end %>
+<%= paginate posts %>
 

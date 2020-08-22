@@ -15,10 +15,11 @@ class PostCommentsController < ApplicationController
 	end
 
 	def destroy
-		comment = PostComment.find(params[:id])
+		@post = Post.find(params[:post_id])
+		post_comment = @post.post_comments.find(params[:id])
 
-		if comment.user_id == current_user.id
-			comment.destroy
+		if post_comment.user_id == current_user.id
+			post_comment.destroy
 			redirect_to request.referrer
 		else
 			redirect_to request.referrer

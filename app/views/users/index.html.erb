@@ -1,24 +1,20 @@
-<div class="row">
-	<div class="col-xs-3 user-profile">
-		<%= render "users/profile", user: @user %>
+<div class="user-view">
+	<div class="user-view-headline">ユーザ一覧</div>
+
+	<div class="container user-list">
+		<% @users.each do |user| %>
+			<div>
+				<% if user.profile_image? %>
+					<%= image_tag user.profile_image.url, class:"user_profile_image_index" %>
+				<% else %>
+					<i class="fas fa-user-circle fa-5x"></i>
+				<% end %>
+				<br>
+				<span><%= link_to user.nickname, user_path(user.id), class:"user-link" %></span>
+				<br>
+				<span>投稿：<%= user.posts.count %>件</span>
+			</div>
+		<% end %>
 	</div>
 
-	<div class="col-xs-6">
-		<table>
-			<% @users.each do |user| %>
-				<tr>
-					<td><% if user.profile_image? %>
-							<%= image_tag user.profile_image.url, size: "150x150" %>
-						<% else %>
-							<div class="user-no-profile">
-								<i class="fas fa-user-circle fa-5x"></i>
-							</div>
-						<% end %>
-					</td>
-					<td><%= link_to user.nickname, user_path(user.id) %></td>
-					<td>投稿：<%= user.posts.count %>件</td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
 </div>
