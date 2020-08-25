@@ -1,0 +1,19 @@
+<div class="notifications-list">
+	<p class="notifications-headline">通知</p>
+	<div class="notifications-headline-trash">
+		<%= link_to notifications_destroy_path, method: :delete do %>
+		    <i class="fas fa-trash fa-2x"></i>
+		    <span>全削除</span>
+		<% end %>
+	</div>
+
+	<% if @notifications.exists? %>
+	    <%= render @notifications %>
+	<% else %>
+	    <p>通知はありません</p>
+	<% end %>
+
+	<div class="top-link">
+		<%= link_to "topページへ戻る", root_path, class:"top-link-text" %>
+	</div>
+</div>

@@ -10,13 +10,15 @@ Rails.application.routes.draw do
 	get "home/about", to: "homes#about"
 	get "search", to: "homes#search"
 
-	resources :users, only:[:show, :index, :edit, :update]
+	resources :users, except:[:new, :create]
 
 	resources :posts, except:[:edit, :update] do
 		resources :post_comments, only:[:create, :destroy]
 		resources :likes, only:[:create, :destroy]
 	end
 
+	resources :notifications, only:[:index]
+	delete "notifications/destroy", to: "notifications#destroy_all"
 
     namespace :admins do
 		get "top", to: "users#top"

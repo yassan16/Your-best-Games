@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
-		redirect_to request.referrer
+		redirect_to user_path(@post.user.id)
 	end
 
 	private

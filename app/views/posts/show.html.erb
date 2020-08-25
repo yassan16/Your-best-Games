@@ -39,8 +39,16 @@
 
 		<div class="post-show-body">
 			<P class="post-show-body-headline">投稿者コメント</P>
-			<p class="post-show-content"><%= @post.body %></p>
+			<p class="post-show-content"><%= simple_format(@post.body) %></p>
 		</div>
+
+		<div class="post-show-botton">
+			<%= link_to "投稿一覧に戻る", posts_path, class:"btn btn-info"%>
+			<% if @post.user == current_user %>
+				<%= link_to "この投稿を削除する", post_path(@post.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger post-danger-botton"%>
+			<% end %>
+		</div>
+
 
 		<div class="comment-area">
 			<%= form_for [@post, @post_comment] do |f| %>
@@ -48,8 +56,6 @@
 				<%= f.submit "コメントする" %>
 			<% end %>
 		</div>
-
-		<div class="post-index-botton"><%= link_to "投稿一覧に戻る", posts_path, class:"btn btn-info"%></div>
 
 			<% @post.post_comments.sort.reverse.each do |post_comment| %>
 				<div class="post-show-comments">
@@ -62,8 +68,6 @@
 					</div>
 				</div>
 			<% end %>
-
-		<div></div>
 	</div>
 
 </div>

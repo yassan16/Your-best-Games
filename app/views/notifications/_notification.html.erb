@@ -1,0 +1,13 @@
+<% visiter = notification.visiter %>
+<% post = notification.post %>
+
+<div class="notifications-list-content">
+	<span class="notifications-text"><%= notification_form(notification) %></span>
+	<span><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span>
+	<% if !@post_comment.nil? %>
+    	<p class="notifications-post-comment">
+    		<%= @post_comment_comment %>
+    	</p>
+	<% end %>
+</div>
+

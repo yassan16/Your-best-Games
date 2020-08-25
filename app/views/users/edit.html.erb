@@ -2,6 +2,8 @@
 	<div class="user-edit">
 		<h1>プロフィール編集</h1>
 
+		<%= render 'layouts/error_messages', obj: @user %>
+
 		<% if @user.profile_image.present? %>
 			<%= image_tag @user.profile_image.url, id: :img_prev %>
 		<% else %>
@@ -14,19 +16,21 @@
 			</div>
 
 			<div class="user-edit-nickname">
-				<%= f.label :nickname %>
+				<%= f.label :nickname %><br>
 				<%= f.text_field :nickname %>
 			</div>
 
 			<div class="user-edit-email">
-				<%= f.label :Email %>
+				<%= f.label :Email %><br>
 				<%= f.text_field :email %>
 			</div>
 
 			<div class="user-edit-button">
 				<%= f.submit "変更を保存する", class:"btn btn-success" %>
+				<%= link_to "このアカウントを削除する", user_path(@user), method: :delete, data: { confirm: '本当にこのアカウントを削除しますか？' },  class:"btn btn-danger user-destroy-button" %>
 			</div>
+
 		<% end %>
+
 	</div>
 </div>
-

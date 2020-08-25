@@ -8,6 +8,8 @@ class PostCommentsController < ApplicationController
 		comment.post_id = post.id
 
 		if comment.save
+			comment_post = comment.post
+			comment_post.create_notification_comment!(current_user, comment.id)
 			redirect_to request.referrer
 		else
 			redirect_to request.referrer

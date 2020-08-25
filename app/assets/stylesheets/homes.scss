@@ -77,11 +77,11 @@
 }
 
 
-/* about箇所 */
+/* about */
 
 .about-visual{
 	height: 700px;
-	background-image: image-url("pokemon.jpeg");
+	background-image: image-url("pokemon.jpg");
 	background-size: cover;
 	background-position: bottom;
 	text-align: center;
@@ -130,8 +130,8 @@
 .about-image-sample{
 	width: 700px;
 	display: inline-block;
-	margin-left: 200px;
 	vertical-align: top;
+	margin-left: 200px;
 }
 
 
@@ -162,19 +162,27 @@
 	margin-top: 50px;
 }
 
-
 .about-comment{
 	height: 700px;
-	background-color: #1c1e21;
+	background-color: #46494e;
+	padding-top: 100px;
+}
+
+.about-comment-sample{
+	width: 700px;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 150px;
 }
 
 
-/* search箇所 */
+/* search */
 
 .home-view{
 	background-color: #232629;
 	color: #d4e1f2;
 	padding: 50px 20% 100px 25%;
+
 }
 
 .post-list{

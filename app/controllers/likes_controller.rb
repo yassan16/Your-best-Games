@@ -7,6 +7,7 @@ class LikesController < ApplicationController
 		like.user_id = current_user.id
 		like.post_id = post.id
 		like.save
+		post.create_notification_by(current_user)
 		redirect_to request.referrer
 	end
 

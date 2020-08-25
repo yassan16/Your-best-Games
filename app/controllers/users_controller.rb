@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_action :authenticate_user!
-	before_action :get_user, only:[:show, :edit, :update]
+	before_action :get_user, only:[:show, :edit, :update, :destroy]
 
 	def show
 		@posts = Post.where(user_id: @user.id).reverse_order.page(params[:page])
@@ -14,12 +14,16 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		if @user == current_user
-			@user.update(user_params)
+		if	@user.update(user_params)
 			redirect_to user_path(current_user)
 		else
 			render ("users/edit")
 		end
+	end
+
+	def destroy
+		@user.destroy
+		redirect_to root_path
 	end
 
 	private

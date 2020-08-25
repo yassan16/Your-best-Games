@@ -1,34 +1,46 @@
 <div class="post-new-form">
+	<h1>投稿画面</h1>
+
 	<%= form_for @post do |f| %>
-		<div>
-			<%= f.label :タイトル %>
-			<%= f.text_field :title, placeholder: "タイトルを記入" %>
-		</div>
+		<%= render 'layouts/error_messages', obj: @post %>
+		<div class="row">
+			<div class="col-xs-3">
 
-		<div>
-			<%= f.label :タグ %>
-			<td><%= f.collection_select :tag_id, Tag.all, :id, :tag_name, include_blank: "--タグを選択してください--" %></td>
-		</div>
+				<div>
+					<%= f.label :タイトル %><br>
+					<%= f.text_field :title, placeholder: "タイトルを記入" %>
+				</div>
 
-		<div>
-			<%= f.label :内容 %>
-			<%= f.text_area :body, placeholder: "見どころを記入！", class:"post-new-body" %>
-		</div>
+				<div>
+					<%= f.label :タグ %><br>
+					<td><%= f.collection_select :tag_id, Tag.all, :id, :tag_name, include_blank: "--タグを選択してください--" %></td>
+				</div>
 
-		<div class="post-new-img">
-			<%= f.label :画像 %>
-			<%= f.file_field :image, id: :post_img %>
-			<div><%= image_tag "no_image.jpg", id: :post_img_prev %></div>
-		</div>
+				<div>
+					<%= f.label :内容 %><br>
+					<%= f.text_area :body, placeholder: "見どころを記入！", class:"post-new-body" %>
+				</div>
+			</div>
 
-		<div class="post-new-video">
-			<%= f.label :動画 %>
-			<%= f.file_field :video, id: :post_video %>
-			<div><%= video_tag "no_image.jpg", controls: true, id: :post_video_prev %></div>
-		</div>
+			<div class="col-xs-9">
 
-		<div><%= f.submit "投稿する", class:"btn btn-primary" %></div>
+				<div class="post-new-img">
+					<%= f.label :画像 %>
+					<%= f.file_field :image, id: :post_img %>
+					<div><%= image_tag "no_image.jpg", id: :post_img_prev %></div>
+				</div>
+
+				<div class="post-new-video">
+					<%= f.label :動画 %>
+					<%= f.file_field :video, id: :post_video %>
+					<div><%= video_tag "no_image.jpg", controls: true, id: :post_video_prev %></div>
+				</div>
+
+				<div><%= f.submit "投稿する", class:"btn btn-primary" %></div>
+			</div>
+		</div>
 	<% end %>
+
 </div>
 
 

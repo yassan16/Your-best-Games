@@ -1,13 +1,15 @@
 <div class="container">
-	<h1>タグ編集</h1>
+	<div class="admin-tag-list">
+		<h1>タグ編集</h1>
 
-	<%= form_for @tag, url: admins_tag_path, method: :patch do |f| %>
-		<%= f.label :タグ名 %>
-		<%= f.text_field :tag_name %>
+		<%= form_for @tag, url: admins_tag_path, method: :patch do |f| %>
+			<%= f.label :タグ名 %>
+			<%= f.text_field :tag_name %>
 
-		<%= f.submit "変更を保存する", class:"btn btn-success" %>
+			<%= f.submit "変更を保存する", class:"btn btn-success" %>
 
-		<%= link_to "削除する", admins_tag_path(@tag.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger"%>
+			<%= link_to "削除する", admins_tag_path(@tag.id), method: :delete, data: { confirm: '本当に削除しますか？' }, class:"btn btn-danger"%>
 
-	<% end %>
+		<% end %>
+	</div>
 </div>
