@@ -2,9 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+/* admin top */
+
 .admin-user-list{
 	color: #fff;
-	margin-top: 50px;
+	margin-top: 150px;
 }
 
 .admin-user-list h1{
@@ -13,4 +16,25 @@
 
 .admin-user-list span{
 	margin: 25px;
+}
+
+.admin-top-text{
+	margin-top: 50px;
+}
+
+
+/* admin user index */
+
+.admin-user-list{
+	margin: 10% 20%;
+	text-align: center;
+	line-hieght: center;
+}
+
+
+/* admin tag index */
+
+.admin-tag-list{
+	margin-top: 100px;
+	margin-bottom: 50px;
 }

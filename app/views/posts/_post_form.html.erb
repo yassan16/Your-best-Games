@@ -1,8 +1,11 @@
 <div class="post-new-form">
-	<h1>投稿画面</h1>
+	<h2>投稿画面</h2>
 
 	<%= form_for @post do |f| %>
-		<%= render 'layouts/error_messages', obj: @post %>
+		<div class="post-error-messages">
+			<%= render 'layouts/error_messages', obj: @post %>
+		</div>
+
 		<div class="row">
 			<div class="col-xs-3">
 
@@ -20,7 +23,11 @@
 					<%= f.label :内容 %><br>
 					<%= f.text_area :body, placeholder: "見どころを記入！", class:"post-new-body" %>
 				</div>
+
+				<div><%= f.submit "投稿する", class:"btn btn-primary" %></div>
+				<div><%= link_to "topに戻る", root_path, class:"btn btn-info" %></div>
 			</div>
+
 
 			<div class="col-xs-9">
 
@@ -36,7 +43,6 @@
 					<div><%= video_tag "no_image.jpg", controls: true, id: :post_video_prev %></div>
 				</div>
 
-				<div><%= f.submit "投稿する", class:"btn btn-primary" %></div>
 			</div>
 		</div>
 	<% end %>

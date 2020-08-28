@@ -9,8 +9,8 @@ class Post < ApplicationRecord
 	has_many :notifications, dependent: :destroy
 
 	with_options presence: true do
-	  validates :title
-	  validates :body
+	  validates :title, length: { in: 1..30 }
+	  validates :body, length: { in: 1..140 }
 	  validates :image
 	end
 

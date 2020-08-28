@@ -10,7 +10,7 @@
 		</div>
 
 		<div><%= link_to post.title, post_path(post.id), class:"post_title" %><br>
-			<%= post.tag.tag_name %><br>
+			<i class="fas fa-tag"></i> <%= post.tag.tag_name %><br>
 			<i class="fas fa-calendar-alt fa-lg"></i> <%= l post.created_at %>
 		</div>
 

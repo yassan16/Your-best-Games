@@ -7,15 +7,15 @@
 <% end %>
 
 <div class="user-data">
-	<p><%= user.nickname %></p>
+	<p><i class="fas fa-user"></i> <%= user.nickname %></p>
 </div>
 
 <div class="user-data">
-	<P>投稿：<%= user.posts.count %>件</P>
+	<P><i class="fas fa-photo-video"></i> 投稿：<%= user.posts.count %>件</P>
 </div>
 
 <% if user == current_user && request.path_info == user_path(current_user)%>
-	<div>
+	<div class=" user-deit-button">
 		<%= link_to "プロフィールを編集する", edit_user_path(user.id), class:"btn btn-primary" %>
 	</div>
 <% end %>

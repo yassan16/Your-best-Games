@@ -2,15 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* background-1 */
 
 .top-main-visual{
 	width: 100%;
-	height: 800px;
+	height: 600px;
 	background-image: image-url("top-main-visual.jpg");
 	background-size: cover;
 	background-position: center;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 
 .top-main-visual-content{
@@ -18,15 +19,9 @@
 }
 
 .top-main-visual-text{
-	font-size: 50px;
+	font-size: 30px;
 	font-weight: bold;
 	color: #dcdcdc;
-}
-
-.top-main-visual-content span{
-	color: #fff;
-	font-size: 10px;
-	line-height: 20px;
 }
 
 .top-link-about,
@@ -35,27 +30,36 @@
 .top-link-about:hover,
 .top-link-about:active {
 	color: #fff;
-	font-size: 30px;
+	font-size: 20px;
 }
+
+.top-main-visual-content span{
+	color: #fff;
+	font-size: 15px;
+	line-height: 20px;
+}
+
+
+/* background-2,3 */
 
 .top-ranking{
 	width: 100%;
-	height: 900px;
+	height: 650px;
 	background-image: image-url("switch.jpg");
 	background-size: cover;
 	background-position: center;
 	text-align: center;
-	padding-top: 200px;
+	padding-top: 100px;
 }
 
 .top-ranking-content{
-	height: 500px;
+	height: 400px;
 	background-color: rgba( 0, 0, 0, 0.7);
 	padding-top: 50px;
 }
 
 .top-ranking p{
-	font-size: 30px;
+	font-size: 20px;
 	color: #fff;
 }
 
@@ -68,11 +72,10 @@
 }
 
 .top-image{
-	width: 500px;
-	height: 280px;
+	width: 350px;
 }
 
-.top-ranking:nth-child(3){
+.top-ranking:nth-child(4){
 	background-image: image-url("pc.jpg");
 }
 
@@ -80,12 +83,12 @@
 /* about */
 
 .about-visual{
-	height: 700px;
+	height: 600px;
 	background-image: image-url("pokemon.jpg");
 	background-size: cover;
 	background-position: bottom;
 	text-align: center;
-	padding-top: 100px;
+	padding-top: 150px;
 }
 
 .about-visual-content{
@@ -97,82 +100,111 @@
 }
 
 .about-visual-header{
-	font-size: 50px;
-}
-
-.about-visual-headline{
 	font-size: 30px;
 }
 
+.about-visual-headline{
+	font-size: 25px;
+}
+
+
+/* about-point1 */
 
 .about-image{
-	height: 600px;
+	height: 400px;
 	background-color: #46494e;
-	padding-top: 100px;
+	padding: 50px 10%;
 }
 
 .about-image-text{
 	display: inline-block;
-	margin-left: 200px;
+	margin-right: 5%;
 }
 
-.about-image-text h1{
+.about-image-text h2{
 	color: #fff;
 }
 
 .about-image-text p{
-	font-size: 20px;
-	display: inline-block;
+	font-size: 15px;
 	color: #fff;
 	margin-top: 50px;
 }
 
-.about-image-sample{
-	width: 700px;
+.about-image-content{
+	width: 50%;
 	display: inline-block;
-	vertical-align: top;
-	margin-left: 200px;
+}
+
+.about-image-sample{
+	width: 100%;
 }
 
 
+/* about-point2 */
+
 .about-video{
-	height: 600px;
+	height: 400px;
 	background-color: #2e3033;
-	padding-top: 100px;
+	padding: 50px 10%;
+}
+
+.about-video-content{
+	width: 50%;
+	margin-right: 5%;
+	display: inline-block;
+	vertical-align: top;
 }
 
 .about-video-sample{
-	width: 700px;
-	margin-left: 200px;
-	vertical-align: top;
+	width: 100%;
 }
 
 .about-video-text{
 	display: inline-block;
-	margin-left: 200px;
 }
 
-.about-video-text h1{
+.about-video-text h2{
 	color: #fff;
 }
 
 .about-video-text p{
-	font-size: 20px;
+	font-size: 15px;
 	color: #fff;
 	margin-top: 50px;
 }
 
+
+/* about-point3 */
+
 .about-comment{
-	height: 700px;
+	height: 400px;
 	background-color: #46494e;
-	padding-top: 100px;
+	padding: 50px 10% 370px;
+}
+
+.about-comment-text{
+	display: inline-block;
+	margin-right: 5%;
+}
+
+.about-comment-text h2{
+	color: #fff;
+}
+
+.about-comment-text p{
+	font-size: 15px;
+	color: #fff;
+	margin-top: 50px;
+}
+
+.about-comment-content{
+	width: 50%;
+	display: inline-block;
 }
 
 .about-comment-sample{
-	width: 700px;
-	display: inline-block;
-	vertical-align: top;
-	margin-left: 150px;
+	width: 95%;
 }
 
 
@@ -181,53 +213,23 @@
 .home-view{
 	background-color: #232629;
 	color: #d4e1f2;
-	padding: 50px 20% 100px 25%;
-
+	padding: 150px 15% 100px;
 }
 
-.post-list{
-	display: flex;
-	padding: 25px 0;
-	border-bottom: 1px solid;
-}
-
-.post-list div{
-	width: 200px;
-	margin-top: 10px;
-	margin-right: 10px;
-}
-
-.post-list div:nth-child(1){
+.search-no-result{
 	text-align: center;
+	margin-top: 50px;
 }
 
-.user_profile_image_post_index{
-	width: 100px;
-	height: 100px;
-	border-radius: 50px;
+.return-top{
+	text-align: center;
+	margin-top: 50px;
 }
 
-.post-list div:nth-child(2){
-	line-height: 40px;
-}
-
-.post_title:link,
-.post_title:visited,
-.post_title:hover,
-.post_title:active {
-	font-size: 20px;
-	color: #fff;
-}
-
-.post-list div:nth-child(3){
-	width: 300px;
-}
-
-.post-index-image{
-	width: 300px;
-}
-
-.post-list div:nth-child(4){
-	margin-left: 50px;
-	line-height: 40px;
+.return-top a,
+.return-top a:link,
+.return-top a:visited,
+.return-top a:hover,
+.return-top a:active {
+	color: #d4e1f2;
 }

@@ -12,19 +12,23 @@
 
 <div class="about-image">
 	<div class="about-image-text">
-		<h1>ポイント１：画像投稿</h1>
+		<h2>ポイント１：画像投稿</h2>
 		<P>ゲームで「かっこ良かったところ」や「感動した場面」を投稿。<br>
 			あなたが心を動かされた瞬間を、画像として投稿できます。<br>
 			(投稿するにはユーザ登録が必要になります。)
 		</P>
 	</div>
-	<%= image_tag "ff10.jpg", class:"about-image-sample" %>
+	<div class="about-image-content">
+		<%= image_tag "ff10.jpg", class:"about-image-sample"%>
+	</div>
 </div>
 
 <div class="about-video">
-	<%= video_tag "/assets/videos/TitanFall2_catch.mp4#t=4", controls: true, class:"about-video-sample" %>
+	<div class="about-video-content">
+		<%= video_tag "/assets/videos/TitanFall2_catch.mp4#t=4", controls: true, class:"about-video-sample" %>
+	</div>
 	<div class="about-video-text">
-		<h1>ポイント２：動画投稿</h1>
+		<h2>ポイント２：動画投稿</h2>
 		<P>画像だけでなく、動画も投稿することができます。<br>
 			感動したものだけでなく、スーパープレイも募集しております！<br>
 			白熱する対戦動画もどうぞ！
@@ -33,12 +37,16 @@
 </div>
 
 <div class="about-comment">
-	<div class="about-image-text">
-		<h1>ポイント３：コメント・いいね</h1>
+	<div class="about-comment-text">
+		<h2>ポイント３：コメント・いいね</h2>
 		<P>他ユーザの投稿に対して、コメントといいねをすることができます。<br>
 			良かった場面をいいねし、オススメしましょう！<br>
 			気軽にコメントしてください！
 		</P>
-		<%= image_tag "sample_comment.jpg", class:"about-comment-sample" %>
 	</div>
+	<div class="about-comment-content">
+		<%= image_tag "sample_comment.jpg", class:"about-comment-sample"%>
+	</div>
+
 </div>
+

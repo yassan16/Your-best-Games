@@ -1,6 +1,6 @@
 <div class="user-view">
 	<div class="user-edit">
-		<h1>プロフィール編集</h1>
+		<h2>プロフィール編集</h2>
 
 		<%= render 'layouts/error_messages', obj: @user %>
 
@@ -25,10 +25,15 @@
 				<%= f.text_field :email %>
 			</div>
 
-			<div class="user-edit-button">
-				<%= f.submit "変更を保存する", class:"btn btn-success" %>
-				<%= link_to "このアカウントを削除する", user_path(@user), method: :delete, data: { confirm: '本当にこのアカウントを削除しますか？' },  class:"btn btn-danger user-destroy-button" %>
+			<div>
+				<div class="user-edit-button">
+					<%= f.submit "変更を保存する", class:"btn btn-success" %>
+				</div>
+				<div class="user-destroy-button">
+					<%= link_to "このアカウントを削除する", user_path(@user), method: :delete, data: { confirm: '本当に、このアカウントを削除しますか？' },  class:"btn btn-danger" %>
+				</div>
 			</div>
+		</div>
 
 		<% end %>
 

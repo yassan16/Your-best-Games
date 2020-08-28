@@ -17,4 +17,11 @@ module NotificationsHelper
 		end
 
     end
+
+    def unchecked_notifications
+    	if user_signed_in?
+    		@notifications = current_user.passive_notifications.where(checked: false)
+    							.where.not(visiter_id: current_user.id)
+    	end
+	end
 end

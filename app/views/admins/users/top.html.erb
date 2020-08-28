@@ -1,11 +1,12 @@
 <div class="container">
 	<div class="admin-user-list">
-		<h1>管理者top</h1>
+		<h1>Admin top</h1>
 
 		<span><%= link_to "ユーザ管理", admins_users_path, class:"btn btn-primary" %></span>
 
 		<span><%= link_to "タグ管理", admins_tags_path, class:"btn btn-warning" %></span>
 
 		<span><%= link_to "LogOut", destroy_admin_session_path, method: :delete, class:"btn btn-danger" %></span>
+		<p class="admin-top-text">footerの文字からAdmin topに戻れます</p>
 	</div>
 </div>

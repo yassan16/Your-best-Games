@@ -1,4 +1,4 @@
-<h1 class="top-logo"><%= link_to "Your best Games", root_path, class:"top-logo-text" %></h1>
+<p class="top-logo"><%= link_to "Your best Games", root_path, class:"top-logo-text" %></p>
 
 <% if user_signed_in? %>
   <span class="login-user">ようこそ<%= current_user.nickname %>さん！</span>
@@ -31,8 +31,15 @@
   <% end %>
 </div>
 
-
 <div id="list-icon">
+  <span class="notification-circle">
+    <% if user_signed_in? %>
+      <% if unchecked_notifications.any? %>
+           <i class="fa fa-circle" style="color: gold;"></i>
+      <% end %>
+    <% end %>
+  </span>
+
   <%= link_to notifications_path do %>
     <i class="fas fa-bell fa-3x"></i>
   <% end %>

@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
 	with_options presence: true do
 	  validates :email
-	  validates :nickname
+	  validates :nickname, length: { in: 1..20 }
 	end
 
 	def active_for_authentication?

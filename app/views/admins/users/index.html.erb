@@ -1,28 +1,27 @@
-<div class="container">
-	<div class="admin-user-list">
-		<h1>ユーザ一覧</h1>
-		<table>
-			<% @users.each do |user| %>
-				<tr>
-					<td><% if user.profile_image? %>
-							<%= image_tag user.profile_image.url, class:"user_profile_image_post_index" %>
-						<% else %>
-							<div class="user-no-profile">
-								<i class="fas fa-user-circle fa-5x"></i>
-							</div>
-						<% end %>
-					</td>
-					<td><%= link_to user.nickname, user_path(user.id) %></td>
-					<td>投稿：<%= user.posts.count %>件</td>
-					<td><% if user.is_active == "Available" %>
-							有効
-						<% else %>
-							無効
-						<% end %>
-					</td>
-					<td><%= link_to "編集", edit_admins_user_path(user.id), class:"btn btn-success"%></td>
-				</tr>
-			<% end %>
-		</table>
-	</div>
+<div class="admin-user-list">
+	<h2>ユーザ一覧</h2>
+	<table class="table table-dark">
+		<% @users.each do |user| %>
+			<tr>
+				<td><% if user.profile_image? %>
+						<%= image_tag user.profile_image.url, class:"user_profile_image_post_index" %>
+					<% else %>
+						<div class="user-no-profile">
+							<i class="fas fa-user-circle fa-5x"></i>
+						</div>
+					<% end %>
+				</td>
+				<td><%= user.nickname %></td>
+				<td>投稿：<%= user.posts.count %>件</td>
+				<td><% if user.is_active == "Available" %>
+						有効
+					<% else %>
+						無効
+					<% end %>
+				</td>
+				<td><%= link_to "編集", edit_admins_user_path(user.id), class:"btn btn-success"%></td>
+			</tr>
+		<% end %>
+	</table>
+
 </div>
