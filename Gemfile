@@ -70,7 +70,7 @@ gem 'pry-byebug'
 
 gem 'kaminari','~> 1.2.1'
 
-gem 'carrierwave','~> 1.0'
+gem 'carrierwave','~> 1.3'
 gem 'mini_magick'
 
 gem 'kaminari','~> 1.2.1'
